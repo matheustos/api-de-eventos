@@ -2,17 +2,18 @@
 include '../../validators/validacaoAgendamento.php';
 include 'C:\wamp64\www\api-de-eventos\src\Model\Agendamento.php';
 
+
 function insertAgendamentoController($agendamento)
 {
     $erros = validaAgendamento($agendamento);
     if(count($erros) > 0) {
         return formatarRetorno(false, [], $erros);
     } else {
-        if(insereAgendamento($agendamento)){
-            return formatarRetorno(true, "Evento cadastrado com sucesso");
-        } else {
-            return formatarRetorno(false, [], "Erro ao realizar cadastrar evento");
-        };
+            if(insereAgendamento($agendamento)){
+                return formatarRetorno(true, "Evento cadastrado com sucesso");
+            } else {
+                return formatarRetorno(false, [], "Erro ao realizar cadastrar evento");
+            };
     }
 
 }

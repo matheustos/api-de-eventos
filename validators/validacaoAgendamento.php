@@ -7,10 +7,6 @@ function validaAgendamento($agendamento) {
 
     if(!isset($agendamento['data_inicio'])) {
         $erros[] = "É necessário adiconar data e hora do agendamento.";
-    }else{
-        if ($agendamento['data_inicio'] <= $dataAtual) {
-            $erros[] = "A data do evento deve ser superior à data de hoje.";
-        }
     }
 
     if(!isset($agendamento['data_termino'])) {
@@ -18,7 +14,7 @@ function validaAgendamento($agendamento) {
     }
     
     if ($agendamento['data_inicio'] != $agendamento["data_termino"]) {
-            $erros[] = "A data de termino do evento deve ser a mesma que a data de inicio.";
+        $erros[] = "A data de termino do evento deve ser a mesma que a data de inicio.";
     }
 
     if(!isset($agendamento['nome'])) {

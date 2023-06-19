@@ -1,6 +1,7 @@
 <?php 
 include 'C:\wamp64\www\api-de-eventos\src\Model\db_connect.php';
 
+
 function cadastroUsuario($user){
     $connect = connect();
 
@@ -11,12 +12,13 @@ function cadastroUsuario($user){
 
     $senha_cripto = sha1($senha);
 
-    $sql = "INSERT INTO usuarios (id_user, Nome, Email, Senha) VALUES ('$id_user', '$nome', '$email', '$senha_cripto')";
+    $sql = "INSERT INTO usuarios (Nome, id_user, Email, Senha) VALUES ('$nome', '$id_user', '$email', '$senha_cripto')";
     $resultado = mysqli_query($connect, $sql);
 
     return $resultado;
 
 }
+
 
 
 
