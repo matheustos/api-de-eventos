@@ -4,7 +4,7 @@ function validaAgendamento($dados) {
 
     $dataAtual = date('Y-m-d');
 
-    if(!isset($dados['data_inicio'])) {
+    if(empty($dados['data_inicio'])) {
         $erros[] = "É necessário adiconar data e hora do agendamento.";
     }
 
@@ -12,7 +12,7 @@ function validaAgendamento($dados) {
         $erros[] = "A data de agendamento deve ser superior a data de hoje.";
     }
 
-    if(!isset($dados['data_termino'])) {
+    if(empty($dados['data_termino'])) {
         $erros[] = "É necessário adiconar data e hora de termino do agendamento.";
     }
     
@@ -20,35 +20,35 @@ function validaAgendamento($dados) {
         $erros[] = "A data de termino do evento deve ser a mesma que a data de inicio.";
     }
 
-    if(!isset($dados['nome'])) {
+    if(empty($dados['nome'])) {
         $erros[] = "O nome do evento e obrigatorio";
     }
 
 
-    if(!isset($dados['hora_inicio'])) {
+    if(empty($dados['hora_inicio'])) {
         $erros[] = "A Hora de inicio e obrigatorio";
     } 
 
-    if(!isset($dados['hora_termino'])) {
+    if(empty($dados['hora_termino'])) {
         $erros[] = "A Hora de termino e obrigatorio";
     } 
 
 
-    if(!isset($dados['local'])) {
+    if(empty($dados['local'])) {
         $erros[] = "O local e obrigatório";
     }
 
-    if(!isset($dados['descricao'])){
+    if(empty($dados['descricao'])){
         $erros[] = "É obrigatório adicionar uma descrição.";
     }
 
-    if(!isset($dados['vagas'])){
+    if(empty($dados['vagas'])){
         $erros[] = "É necessário adicionar a quantidade de vagas.";
     }elseif(!is_numeric($dados['vagas'])){
         $erros[] = "A quantidade de vagas deve ser um número";
     }
 
-    if(!isset($dados['categoria'])){
+    if(empty($dados['categoria'])){
         $erros[] = "É obrigatório adicionar a categoria do evento.";
     }
 
@@ -63,7 +63,7 @@ function validaAgendamento($dados) {
 function validaCancelamento($dados){
     $erros = [];
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
 
         $erros[] = "Não existe evento com esse id.";
     }
@@ -72,11 +72,11 @@ function validaCancelamento($dados){
         $erros[] = "Sem permissao.";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do evento";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do usuario";
     }
 
@@ -87,7 +87,7 @@ function validaCancelamento($dados){
 function validaEvento($dados){
     $erros = [];
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
 
         $erros[] = "Não existe evento com esse id.";
     }
@@ -96,11 +96,11 @@ function validaEvento($dados){
         $erros[] = "Sem permissao.";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do evento";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do usuario";
     }
 
@@ -110,7 +110,7 @@ function validaEvento($dados){
 function validaConclusao($dados){
     $erros = [];
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
 
         $erros[] = "Não existe evento com esse id.";
     }
@@ -119,16 +119,18 @@ function validaConclusao($dados){
         $erros[] = "Sem permissao.";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do evento";
     }
 
-    if(!isset($dados['id'])){
+    if(empty($dados['id'])){
         $erros[] = "Necessario informar id do usuario";
     }
 
     return $erros;
 }
+
+
 
 
 

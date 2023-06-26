@@ -100,7 +100,7 @@ function concluirEvento($dados){
         $status = $row['status'];
 
     if($status == "Em andamento"){
-        $sql = "UPDATE eventos SET status = 'Concluido' WHERE id = $id";
+        $sql = "UPDATE eventos SET status = 'Concluido' WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
         return $result;
     }
