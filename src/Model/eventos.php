@@ -1,6 +1,7 @@
 <?php 
 include 'C:\wamp64\www\api-de-eventos\src\Model\db_connect.php';
 
+// lista todos os eventos
 function listarEventos(){
     $connect = connect();
 
@@ -22,6 +23,7 @@ function listarEventos(){
     }
 }
 
+// lista os eventos por categoria
 function listarPorCategoria($dados){
     $connect = connect();
 
@@ -45,6 +47,7 @@ function listarPorCategoria($dados){
     }
 }
 
+// lista os eventos por data de inicio
 function listarPorData($dados){
     $connect = connect();
 

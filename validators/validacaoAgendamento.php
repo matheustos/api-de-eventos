@@ -1,4 +1,7 @@
 <?php 
+// VALIDAÇÕES IMPORTANTES
+
+// valida se todos os dados do agendamento forma passados, bem como as validaçoes necessárias sobre as datas
 function validaAgendamento($dados) {
     $erros = [];
 
@@ -52,6 +55,10 @@ function validaAgendamento($dados) {
         $erros[] = "É obrigatório adicionar a categoria do evento.";
     }
 
+    if($dados['id_user'] != 1){
+        $erros[] = "Sem permissao.";
+    }
+
     if(count($erros) > 0) {
         $_SESSION["erros"] = $erros;
     }
@@ -59,7 +66,7 @@ function validaAgendamento($dados) {
     return $erros;
 }
 
-
+// valida se os dados foram imformados e se o usuário tem permissão para cancelar.
 function validaCancelamento($dados){
     $erros = [];
 
@@ -107,6 +114,7 @@ function validaEvento($dados){
     return $erros;
 }
 
+// valida se os dados foram imformados e se o usuário tem permissão para concluir.
 function validaConclusao($dados){
     $erros = [];
 

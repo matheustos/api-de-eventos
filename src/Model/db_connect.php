@@ -1,7 +1,8 @@
 <?php 
+
+// conexão com banco de dados
 function connect()
 {
-    // Conexão com banco de dados
     $servername = "localhost";
     $username = "root";
     $password = "";

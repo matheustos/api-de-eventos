@@ -2,7 +2,7 @@
 include 'C:\wamp64\www\api-de-eventos\src\Model\db_connect.php';
 
 
-
+// criar evento
 function insereAgendamento($dados){
     $erros = [];
 
@@ -17,6 +17,7 @@ function insereAgendamento($dados){
     $descricao = $dados["descricao"];
     $vagas = $dados["vagas"];
     $categoria = $dados["categoria"];
+    $id_user = $dados["id_user"];
     $status = "Aberto para inscricoes";
 
 
@@ -27,6 +28,7 @@ function insereAgendamento($dados){
  
 } 
 
+// cancelar evento
 function cancelaAgendamento($dados){
     $connect = connect();
 
@@ -55,6 +57,7 @@ function cancelaAgendamento($dados){
 
 }
 
+// iniciar um evento
 function iniciaEvento($dados){
     $connect = connect();
 
@@ -66,7 +69,7 @@ function iniciaEvento($dados){
 
     $connect = connect();
     
-    $query = "SELECT status FROM eventos WHERE id = '$id'";
+    $query = "SELECT status, Inicio FROM eventos WHERE id = '$id'";
     $resultado = mysqli_query($connect, $query);
 
     // Verificar se a consulta foi executada com sucesso
@@ -84,6 +87,7 @@ function iniciaEvento($dados){
 
 }
 
+// concluir um evento que já foi iniciado
 function concluirEvento($dados){
     $connect = connect();
 

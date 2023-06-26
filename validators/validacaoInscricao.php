@@ -1,4 +1,7 @@
 <?php 
+// VALIDAÇÕES IMPORTANTES
+
+// valida se os dados necessários para inscrição foram passados
 function validaInscricao($dados){
     $erros = [];
 
@@ -11,13 +14,10 @@ function validaInscricao($dados){
         $erros[] = "Necessario informar o nome.";
     }
 
-    if(empty($dados['email'])){
-        $erros[] = "Necessario informar o email";
-    }
-
     return $erros;
 }
 
+// valida se os dados necessários para avaliação foram passados
 function validaAvaliacao($dados){
     $erros = [];
 
@@ -28,10 +28,6 @@ function validaAvaliacao($dados){
 
     if(empty($dados['nome'])){
         $erros[] = "Necessario informar o nome.";
-    }
-
-    if(empty($dados['email'])){
-        $erros[] = "Necessario informar o email";
     }
 
     if(empty($dados['estrelas'])){

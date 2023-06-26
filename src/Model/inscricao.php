@@ -1,6 +1,7 @@
 <?php 
 include 'C:\wamp64\www\api-de-eventos\src\Model\db_connect.php';
 
+// realizar inscrição em um evento
 function inscricao($dados){
 
     $connect = connect();
@@ -8,7 +9,6 @@ function inscricao($dados){
 
     $evento = $dados['evento'];
     $nome = $dados['nome'];
-    $email = $dados['email'];
     $presenca = "false";
 
     $sql = "SELECT * FROM eventos WHERE Nome = '$evento'";
@@ -20,7 +20,7 @@ if ($resultado->num_rows > 0) {
     $vagas = $row["Vagas"];
 
     if($vagas > 0){
-        $query = "INSERT INTO inscritos (Nome, Email, Evento, Presenca) VALUES ('$nome', '$email', '$evento', '$presenca')";
+        $query = "INSERT INTO inscritos (Nome, Evento, Presenca) VALUES ('$nome', '$evento', '$presenca')";
         $resultado = mysqli_query($connect, $query);
 
         $vagas_atuais = $vagas - 1;
@@ -33,6 +33,7 @@ if ($resultado->num_rows > 0) {
 }
 }
 
+// listar pessoas incritas em um evento
 function listarInscritos($dados){
     $connect = connect();
 
@@ -56,18 +57,18 @@ function listarInscritos($dados){
     }
 }
 
+// confirmar presença no evento
 function presenca($dados){
     $connect = connect();
 
     $evento = $dados['evento'];
     $nome = $dados['nome'];
-    $email = $dados['email'];
     
-    $sql = "SELECT * FROM inscritos WHERE Nome = '$nome' AND Email = '$email' AND Evento = '$evento'";
+    $sql = "SELECT * FROM inscritos WHERE Nome = '$nome' AND Evento = '$evento'";
     $resultado = mysqli_query($connect, $sql);
 
     if ($resultado->num_rows > 0) {
-        $query = "UPDATE inscritos SET presenca = 'true' WHERE Nome = '$nome' AND Email = '$email' AND Evento = '$evento'";
+        $query = "UPDATE inscritos SET presenca = 'true' WHERE Nome = '$nome' AND Evento = '$evento'";
         $result = mysqli_query($connect, $query);
 
         return $result;
@@ -76,16 +77,16 @@ function presenca($dados){
 
 }
 
+// avaliar o evento
 function avaliacao($dados){
     $connect = connect();
 
     $evento = $dados['evento'];
     $nome = $dados['nome'];
-    $email = $dados['email'];
     $estrelas = $dados['estrelas'];
     $comentario = $dados['comentario'];
     
-    $sql = "SELECT presenca FROM inscritos WHERE Nome = '$nome' AND Email = '$email' AND Evento = '$evento'";
+    $sql = "SELECT presenca FROM inscritos WHERE Nome = '$nome' AND Evento = '$evento'";
     $resultado = mysqli_query($connect, $sql);
 
     if ($resultado->num_rows > 0){
@@ -93,7 +94,7 @@ function avaliacao($dados){
         $presenca = $row['presenca'];
 
         if($presenca == "true"){
-            $sql = "INSERT INTO avaliacao (Nome, Email, Evento, Estrelas, Comentario) VALUES ('$nome', '$email', '$evento', '$estrelas', '$comentario')";
+            $sql = "INSERT INTO avaliacao (Nome,Evento, Estrelas, Comentario) VALUES ('$nome', '$evento', '$estrelas', '$comentario')";
             $result = mysqli_query($connect, $sql);
             return $result;
         }
