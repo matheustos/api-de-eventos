@@ -118,11 +118,6 @@ function validaEvento($dados){
 function validaConclusao($dados){
     $erros = [];
 
-    if(empty($dados['id'])){
-
-        $erros[] = "Não existe evento com esse id.";
-    }
-
     if($dados['id_user'] != 1){
         $erros[] = "Sem permissao.";
     }
@@ -131,7 +126,7 @@ function validaConclusao($dados){
         $erros[] = "Necessario informar id do evento";
     }
 
-    if(empty($dados['id'])){
+    if(!isset($dados['id_user']) || empty($dados['id_user'])){
         $erros[] = "Necessario informar id do usuario";
     }
 

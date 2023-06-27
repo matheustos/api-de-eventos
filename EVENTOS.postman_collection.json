@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "64e06d1c-c9bf-4cbb-ba29-02b166a53c58",
+		"name": "EVENTOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25064896",
+		"_collection_link": "https://www.postman.com/technical-cosmologist-25885317/workspace/sistema-de-eventos/collection/25064896-64e06d1c-c9bf-4cbb-ba29-02b166a53c58?action=share&creator=25064896&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Adicionar evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nome",
+							"value": "Teste",
+							"type": "text"
+						},
+						{
+							"key": "data_inicio",
+							"value": "2023-06-29",
+							"type": "text"
+						},
+						{
+							"key": "data_termino",
+							"value": "2023-06-29",
+							"type": "text"
+						},
+						{
+							"key": "hora_inicio",
+							"value": "12:00:00",
+							"type": "text"
+						},
+						{
+							"key": "hora_termino",
+							"value": "22:00:00",
+							"type": "text"
+						},
+						{
+							"key": "local",
+							"value": "Aracaju",
+							"type": "text"
+						},
+						{
+							"key": "descricao",
+							"value": "evento cadastrado para teste",
+							"type": "text"
+						},
+						{
+							"key": "vagas",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "categoria",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/adicionar/index.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"adicionar",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iniciar evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/iniciar/index.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"iniciar",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/cancelar/index.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"cancelar",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Concluir evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/concluir/index.php?id=1&id_user=1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"concluir",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os eventos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/api-de-eventos/api/eventos/index.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"eventos",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar eventos por categoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "categoria",
+							"value": "A",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/eventos/listar_por_categoria.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"eventos",
+						"listar_por_categoria.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar eventos por data ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data_inicio",
+							"value": "2023-06-27",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "Matheus Santos",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/eventos/listar_por_data.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"eventos",
+						"listar_por_data.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realizar inscrição em um evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "evento",
+							"value": "Teste",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Matheus Santos",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/inscritos/index.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"inscritos",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar pessoas inscritas em um evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "evento",
+							"value": "Teste",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/inscricao/listar_inscritos.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"inscricao",
+						"listar_inscritos.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmar presença ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "evento",
+							"value": "Teste",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Matheus Santos",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/inscricao/presenca.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"inscricao",
+						"presenca.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realizar avaliação de evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "evento",
+							"value": "Teste",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Matheus Santos",
+							"type": "text"
+						},
+						{
+							"key": "estrelas",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "comentario",
+							"value": "Evento de teste legal",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api-de-eventos/api/inscricao/comentario.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api-de-eventos",
+						"api",
+						"inscricao",
+						"comentario.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
